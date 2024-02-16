@@ -10,12 +10,12 @@ function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Layout />}>
+      <Route path="/" element={<Layout />}>
         <Route index element={<CategoriesList />} />
-        <Route path=':category' element={<Products />} />
-        <Route path='product/:productid' element={<ProductDetails />} />
-        <Route path='login' element={<Login />} />
-        <Route path='cart' element={<Cart />} />
+        <Route path=":category" element={<Products />} />
+        <Route path="product/:productid" element={<ProductDetails />} />
+        <Route path="login" element={<Login />} />
+        <Route path="cart" element={<Cart />} />
       </Route>
     </Routes>
   )
