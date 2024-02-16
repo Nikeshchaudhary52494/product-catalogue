@@ -1,13 +1,10 @@
-import book from "../assets/book.jpg"
 import phone from "../assets/iphone.webp"
 import laptop from "../assets/airbook.webp"
-import sound from "../assets/headPhone.webp"
-import mopper from "../assets/mopper.webp"
-import shirt from "../assets/shirt.jpg"
-import teddy from "../assets/teddy.webp"
-import watch from "../assets/watch2.jpg"
-import sofa from "../assets/sofa.avif"
-import camera from "../assets/camera.jpg"
+import skincare from "../assets/skincare.jpg"
+import decoration from "../assets/decoration.jpg"
+import groceries from "../assets/groceries.png"
+import perfume from "../assets/perfume.webp"
+
 
 export const categoriesList = [{
     imgAddress: phone,
@@ -15,38 +12,22 @@ export const categoriesList = [{
 },
 {
     imgAddress: laptop,
-    categoryName: "Laptop"
+    categoryName: "laptops"
 },
 {
-    imgAddress: shirt,
-    categoryName: "Fashion"
+    imgAddress: decoration,
+    categoryName: "home-decoration"
 },
 {
-    imgAddress: mopper,
-    categoryName: "Households"
+    imgAddress: groceries,
+    categoryName: "groceries"
 },
 {
-    imgAddress: watch,
-    categoryName: "Watches"
+    imgAddress: skincare,
+    categoryName: "skincare"
 },
 {
-    imgAddress: sofa,
-    categoryName: "Furniture"
+    imgAddress: perfume,
+    categoryName: "fragrances"
 },
-{
-    imgAddress: teddy,
-    categoryName: "Toys"
-},
-{
-    imgAddress: sound,
-    categoryName: "Sound"
-},
-{
-    imgAddress: camera,
-    categoryName: "Camera"
-},
-{
-    imgAddress: book,
-    categoryName: "Books"
-}
 ]

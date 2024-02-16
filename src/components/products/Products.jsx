@@ -39,9 +39,9 @@ const Products = () => {
         <>
             {
                 products.length > 0 ?
-                    <div className='pb-10 max-w-5xl mb-20 mx-auto'>
-                        <h2 className='text-4xl text-blue-500 my-5'>Products</h2>
-                        <div className='rounded-lg grid gap-10 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-1 bg-blue-300'>
+                    <div className='pb-10 px-10 max-w-5xl mb-20 mx-auto'>
+                        <h2 className='sm:text-4xl text-2xl text-blue-500 my-5'>Products</h2>
+                        <div className='rounded-lg grid gap-10 p-10 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 grid-cols-1 bg-primary bg-opacity-40'>
 
                             {products && products.map((product, index) => (
                                 <div

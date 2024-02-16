@@ -1,5 +1,6 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import toast from 'react-hot-toast';
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
@@ -22,6 +23,7 @@ const Login = () => {
             password: ""
         });
         navigate(location.state);
+        toast.success("User loged-in");
     };
     return (
         <>

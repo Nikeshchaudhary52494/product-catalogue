@@ -10,10 +10,10 @@ const CategoriesList = () => {
 
     return (
         <div className='max-w-5xl mb-20 px-10 mx-auto'>
-            <h1 className='text-4xl text-blue-500 my-5'>
+            <h1 className='sm:text-4xl text-2xl text-blue-500 my-5'>
                 Products Category
             </h1>
-            <div className=' p-10 rounded-lg grid gap-10 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-cols-1 bg-blue-300'>
+            <div className=' p-10 rounded-lg grid gap-10 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 grid-cols-1 bg-primary bg-opacity-40'>
                 {categoriesList.map((category) =>
                     <div
                         key={category.categoryName}

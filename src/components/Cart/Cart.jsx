@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CartItemCard from './CartItemCard';
 import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Cart = () => {
     const navigate = useNavigate();
@@ -29,6 +30,8 @@ const Cart = () => {
             updatedCart[existingItemIndex].quantity += 1;
             setCart(updatedCart);
             localStorage.setItem('cart', JSON.stringify(updatedCart));
+        } else {
+            toast.error("Only 4 products can be added");
         }
     };
     const qDecrease = (productId) => {
@@ -44,6 +47,7 @@ const Cart = () => {
     const handelClearCart = () => {
         localStorage.removeItem('cart');
         setCart([]);
+        toast.success("Cart cleared")
     }
 
 

@@ -3,6 +3,7 @@ import Carousel from 'react-material-ui-carousel';
 import { useParams } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component"
 import Loader from '../layout/Loader';
+import toast from 'react-hot-toast';
 
 const ProductDetails = () => {
     const { productid } = useParams();
@@ -15,7 +16,7 @@ const ProductDetails = () => {
         color: "rgba(20,20,20,0.1)",
         activeColor: "tomato",
         size: window.innerWidth < 600 ? 20 : 25,
-        value: product.ratings,
+        value: product.rating,
         isHalf: true,
     };
     const handleAddToCart = ({
@@ -40,22 +41,11 @@ const ProductDetails = () => {
         }
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
+        toast.success("Product added to cart")
     };
     const updateCart = (updatedCart) => {
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
-    };
-
-    const removeFromCart = (productId) => {
-        const updatedCart = cart.filter(item => item.id !== productId);
-        updateCart(updatedCart);
-    };
-
-    const updateQuantity = (productId, newQuantity) => {
-        const updatedCart = cart.map(item =>
-            item.id === productId ? { ...item, quantity: newQuantity } : item
-        );
-        updateCart(updatedCart);
     };
 
     const handelCountIncrease = () => {
@@ -63,6 +53,7 @@ const ProductDetails = () => {
             if (numberOfProduct < 4) {
                 setNumberOfProduct((prevCount) => prevCount + 1);
             } else {
+                toast.error("Only 4 products can be added");
             }
         }
     }
