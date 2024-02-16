@@ -3,7 +3,6 @@ import { useState } from 'react'
 const Login = () => {
     const location = useLocation();
     const navigate = useNavigate();
-
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -22,12 +21,12 @@ const Login = () => {
             email: "",
             password: ""
         });
-        navigate(location.pathname);
+        navigate(location.state);
     };
     return (
         <>
-            <div className="bg-blue-400 flex flex-col items-center justify-center inset-0 z-10 fixed">
-                <div class="bg-blue-300 px-5 py-10 rounded-lg text-white">
+            <div className="bg-secondary flex flex-col items-center justify-center inset-0 z-10 fixed">
+                <div class="bg-primary px-5 py-10 rounded-lg text-white">
                     <div class="px-4" >
                         <h3 class="text-xl mb-4 ">Login</h3>
                     </div>
@@ -50,7 +49,7 @@ const Login = () => {
                             value={password} />
                         <input
                             type="submit"
-                            class="w-[300px] m-2 h-[40px] hover:bg-green-700 text-white bg-green-400 rounded-lg" />
+                            class="w-[300px] m-2 h-[40px] hover:bg-green-700 text-white bg-submit rounded-lg" />
                     </form>
                     <div className='flex justify-between'>
                         <Link
@@ -66,7 +65,7 @@ const Login = () => {
                 </div>
                 <div className='w-full max-w-sm px-4'>
                     <Link to="/" >
-                        <button className="text-white  p-2 mt-5"  >Go to Home</button>
+                        <button className="text-white  p-2 mt-5">Go to Home</button>
                     </Link>
                 </div>
             </div>

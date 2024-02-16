@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import Carousel from 'react-material-ui-carousel';
 import { useParams } from 'react-router-dom';
 import ReactStars from "react-rating-stars-component"
+import Loader from '../layout/Loader';
 
 const ProductDetails = () => {
     const { productid } = useParams();
     const [product, setProduct] = useState({});
+    const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState(JSON.parse(localStorage.getItem('cart')) || []);
     const [numberOfProduct, setNumberOfProduct] = useState(1);
     const options = {
@@ -79,13 +81,21 @@ const ProductDetails = () => {
                 }
                 const data = await response.json();
                 setProduct(data);
+                setLoading(false);
+
             } catch (error) {
                 console.error('Error fetching products:', error);
+                setLoading(false);
             }
         };
 
         fetchData();
     }, []);
+
+    if (loading) {
+        return <Loader />;
+    }
+
     return (
         <>
             <div className=" max-w-5xl mx-auto p-4 flex items-center lg:flex-row lg:items-start flex-col lg:items-top gap-10 m-5 justify-center ">
@@ -110,7 +120,7 @@ const ProductDetails = () => {
                         {/* Add to cart-button */}
                         <div className="flex items-center ">
                             <button
-                                className="p-4 w-5 h-[40px] grid place-content-center active:bg-slate-500 bg-slate-400 rounded-l-lg "
+                                className="p-4 w-5 h-[40px] grid place-content-center active:bg-slate-500 hover:bg-slate-500 bg-slate-400 rounded-l-lg "
                                 onClick={handelCountDecrease}
                             >-</button>
                             <input
@@ -120,12 +130,12 @@ const ProductDetails = () => {
                                 readOnly
                             />
                             <button
-                                className="p-4 w-5 h-[40px] active:bg-slate-500 bg-slate-400 rounded-r-lg grid place-content-center "
+                                className="p-4 w-5 h-[40px] active:bg-slate-500 bg-slate-400  hover:bg-slate-500 rounded-r-lg grid place-content-center "
                                 onClick={handelCountIncrease}
                             >+</button>
                         </div>
                         <button
-                            className="w-40 h-[40px] bg-cyan-500 rounded-3xl my-4 active:bg-cyan-600 duration-500"
+                            className="w-40 h-[40px] bg-cyan-500 rounded-3xl my-4 active:bg-cyan-600 hover:bg-cyan-600 duration-500"
                             onClick={() => {
                                 handleAddToCart({
                                     productId: product.id,
@@ -147,7 +157,7 @@ const ProductDetails = () => {
             </div >
             <div className=" w-3/4  max-w-3xl flex p-4 lg:px-12  flex-col gap-2 border-y border-dashed mt-32 mb-10 mx-auto items-center justify-between sm:flex-row ">
                 <h3 className="text-2xl text-center font-medium " >Reviews</h3>
-                <button className="text-white  font-medium w-[200px] h-[40px] bg-blue-200 rounded-lg" > Add Review</button>
+                <button className="text-white  font-medium w-[200px] h-[40px] bg-blue-200 cursor-not-allowed rounded-lg" > Add Review</button>
             </div>
             <p className="text-center mb-32 text-red-400 font-medium">
                 No Rerview Available
